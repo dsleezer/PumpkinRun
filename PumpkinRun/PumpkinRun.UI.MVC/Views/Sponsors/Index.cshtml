@@ -1,0 +1,252 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.Sponsor>
+
+@{
+    ViewData["Title"] = "Sponsors";
+}
+
+<!-- Hero Banner -->
+<header id="sponsors" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1>
+                    <small>Join the</small><br>
+                    Fight
+                </h1>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "SponsorTypes")" role="button">BECOME A SPONSOR</a>
+
+                    <a class="btn btn-lg btn-secondary" href="@Url.Action("Beneficiaries", "Sponsors")" target="_blank" role="button">VIEW OUR BENEFICIARIES</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Link to View Sponsor Messages -->
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+                <div class="col-sm-9">
+                    <h4>Click here to view messages from our sponsors.</h4>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <a href="@Url.Action("SponsorMessages", "Sponsors")" class="btn btn-primary btn-lg">View Sponsor Messages</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- List of Sponsors -->
+<div class="section-inner">
+    @*<h1 class="text-center">Our Sponsors</h1>*@
+    <div class="container">
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-lg btn-primary page-scroll" asp-action="Manage" role="button">Manage Sponsors</a>
+        }
+        @{
+            List<PumpkinRun.DATA.EF.Models.SponsorType> sponsorTypes = ViewBag.SponsorTypes;
+        }
+        @foreach (PumpkinRun.DATA.EF.Models.SponsorType st in sponsorTypes)
+        {
+            <div class="row mb60 mt60 text-center">
+                <div class="col-sm-12">
+                    <h3 class="section-title">@st.SponsorTypeName</h3>
+                </div>
+            </div>
+            <div class="row">
+                
+                        @foreach (var item in Model)
+                        {
+                            if (st.SponsorTypeId == 1 && st.SponsorTypeId == item.SponsorTypeId)
+                            {
+                                <div>
+                                    <a href="@item.SponsorUrl" target="_blank" rel="noreferrer">
+                                        <img class="img-responsive mx-auto" src="~/assets/images/Sponsors/@item.SponsorLogo" alt="logo for @item.SponsorName">
+                                    </a>
+                                </div>
+                                @*@if (item.SponsorVideoUrl != null)
+                                    {
+                                    string[] words = item.SponsorVideoUrl.Split('=');
+                                    string embedUrl = "https://www.youtube.com/embed/" + words[1];
+
+                                    <div class="mx-auto text-center mt-5">
+                                    <iframe width="560" height="315" src="@embedUrl" title="YouTube video player"
+                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="mx-auto">
+                                    </iframe>
+                                    </div>
+                                    }*@
+                            }
+
+                            else if (st.SponsorTypeId == item.SponsorTypeId)
+                            {
+                                if (st.Sponsors.Count >= 4)
+                                {
+                                    @*<div class="col-xs-4 sponsor-logo mb-5">*@
+                                        <div class="col-xs-4 mb-5">
+                                        <a href="@item.SponsorUrl" target="_blank" rel="noreferrer">
+                                            <div class="text-center" style="padding-top: 45px;">@item.SponsorName</div>
+                                            @*@if (item.SponsorLogo == null)
+                                                {
+                                                }
+                                                else
+                                                {
+                                                <img class="img-responsive mx-auto" src="~/assets/images/Sponsors/@item.SponsorLogo" alt="">
+                                                }*@
+                                        </a>
+                                    </div>
+                                }
+                                if (st.Sponsors.Count == 3)
+                                {
+                                    @*<div class="col-xs-4 col-xs-offset-1 sponsor-logo mb-5">*@
+                                        <div class="col-xs-4 col-xs-offset-1 mb-5">
+                                        <a href="@item.SponsorUrl" target="_blank" rel="noreferrer">
+                                            <div class="text-center" style="padding-top: 45px;">@item.SponsorName</div>
+                                            @*@if (item.SponsorLogo == null)
+                                                {
+                                                }
+                                                else
+                                                {
+                                                <img class="img-responsive mx-auto" src="~/assets/images/Sponsors/@item.SponsorLogo" alt="">
+                                                }*@
+                                        </a>
+                                    </div>
+                                }
+                                if (st.Sponsors.Count == 2)
+                                {
+                                    @*<div class="col-xs-4 col-xs-offset-1 sponsor-logo mb-5">*@
+                                        <div class="col-xs-4 col-xs-offset-1 mb-5">
+                                        <a href="@item.SponsorUrl" target="_blank" rel="noreferrer">
+                                            <div class="text-center" style="padding-top: 45px;">@item.SponsorName</div>
+                                            @*@if (item.SponsorLogo == null)
+                                                {
+                                                }
+                                                else
+                                                {
+                                                <img class="img-responsive mx-auto" src="~/assets/images/Sponsors/@item.SponsorLogo" alt="">
+                                                }*@
+                                        </a>
+                                    </div>
+                                }
+                                if (st.Sponsors.Count == 1)
+                                {
+                                    @*<div class="col-xs-4 col-xs-offset-4 sponsor-logo mb-5">*@
+                                        <div class="col-xs-4 col-xs-offset-4 mb-5">
+                                        <a href="@item.SponsorUrl" target="_blank" rel="noreferrer">
+                                            <div class="text-center" style="padding-top: 45px;">@item.SponsorName</div>
+                                            @*@if (item.SponsorLogo == null)
+                                                {
+                                                }
+                                                else
+                                                {
+                                                <img class="img-responsive mx-auto" src="~/assets/images/Sponsors/@item.SponsorLogo" alt="">
+                                                }*@
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        }
+                
+            </div>
+        }
+        @*<div class="row mb60 mt60 text-center">
+            <div class="col-sm-12">
+            <h3 class="section-title">Kid Zone Sponsor</h3>
+            <ul style="list-style-type:none;">
+            <li><a href="https://www.andyspainting.com/" target="_blank" rel="noreferrer">Andy's Painting</a></li>
+            </ul>
+            <h3 class="section-title">Health Tent Sponsor</h3>
+            <ul style="list-style-type:none;">
+            <li><a href="https://justadjustme.com/" target="_blank" rel="noreferrer">Chiropractic Lifestyle Center</a></li>
+            </ul>
+
+            <h3 class="section-title">Tot Trot Sponsor</h3>
+            <ul style="list-style-type:none;">
+            <li>Walter & Pay Brayman</li>
+            </ul>
+            <h3 class="section-title">Friend Sponsors</h3>
+            <ul style="list-style-type:none;">
+            <li>Olathe Running Club</li>
+            <li>Frontier Trail Middle School</li>
+            <li>Kinkley Springs Water</li>
+            <li>Madden Rentals</li>
+            <li>Olathe North H.S.</li>
+            <li>Olathe Northwest H.S.</li>
+            <li>Olathe South H.S. Soccer Teams</li>
+            <li>United Rental</li>
+            <li>Target</li>
+            <li>Tropical Smoothie Cafe</li>
+            <li>Olathe Police Department</li>
+            <li>Olathe EMT</li>
+            <li>Olathe Public Works</li>
+
+            </ul>
+
+
+            </div>
+            </div>*@
+    </div>
+</div>
+
+@*
+    <h2>@ViewData["Title"]</h2>
+
+    <p>
+    <a asp-action="Create">Add Sponsor</a>
+    </p>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => model.SponsorName)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.SponsorUrl)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.SponsorLogo)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.SponsorVideoUrl)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.SponsorType)
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.SponsorName)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.SponsorUrl)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.SponsorLogo)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.SponsorVideoUrl)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.SponsorType.SponsorTypeName)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.SponsorId">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.SponsorId">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.SponsorId">Delete</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>
+
+*@

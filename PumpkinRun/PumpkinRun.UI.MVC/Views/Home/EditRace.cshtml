@@ -1,0 +1,92 @@
+﻿@model PumpkinRun.DATA.EF.Models.RaceDayInformation
+
+@{
+    ViewData["Title"] = "Edit Race Day Information";
+}
+
+
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>@ViewData["Title"]</h4>
+                </div>
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+                        <form asp-action="EditRace" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="RaceDayId" />
+                            <input type="hidden" asp-for="InstructionsFile" />
+                            <div class="form-group">
+                                <h5>Race Date</h5>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="ScheduledDate" class="form-control col-md-4 mb20" placeholder="Date of race" value="@string.Format($"{Model.ScheduledDate:yyyy-MM-dd}")" />
+                                <span asp-validation-for="ScheduledDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <h5>Instructions Flyer</h5>
+                            </div>
+                            <div class="form-group">
+                                <p>
+                                    <label class="px-3">> Current File:</label> <a href="~/assets/docs/@Model.InstructionsFile" target="_blank">@Model.InstructionsFile</a>
+                                </p>
+                                <p>
+                                    Click 'choose file' to update
+                                </p>
+                                <input type="file" asp-for="InstructionsFlyer" class="form-control col-md-4 mb20" />
+                                
+                                @*<span asp-validation-for="ScheduledDate" class="text-danger"></span>*@
+                            </div>
+
+                            <div class="form-group">
+                                <h5>Packet Pickup Options</h5>
+                            </div>
+                            <div class="form-group">
+                                <label class="px-3" asp-for="PacketPickupOption1">> Option 1</label>
+                                <input asp-for="PacketPickupOption1" class="form-control col-md-4 mb20" placeholder="Option 1" />
+                                <span asp-validation-for="PacketPickupOption1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="px-3" asp-for="PacketPickupOption2">> Option 2</label>
+                                <input asp-for="PacketPickupOption2" class="form-control col-md-4 mb20" placeholder="Option 2" />
+                                <span asp-validation-for="PacketPickupOption2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="px-3" asp-for="PacketPickupOption3">> Option 3</label>
+                                <input asp-for="PacketPickupOption3" class="form-control col-md-4 mb20" placeholder="Option 3" />
+                                <span asp-validation-for="PacketPickupOption3" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <h5>School Pickup Date</h5>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="SchoolPickupDate" class="form-control col-md-4 mb20" placeholder="School Pickup Date" value="@string.Format($"{Model.SchoolPickupDate:yyyy-MM-dd}")" />
+                                <span asp-validation-for="SchoolPickupDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary pull-right mt30" />
+                                <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

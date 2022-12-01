@@ -1,0 +1,36 @@
+﻿@model PumpkinRun.DATA.EF.Models.SponsorType
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SponsorType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SponsorTypeName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SponsorTypeName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrOffered)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbrOffered)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SponsorTypeId">Edit</a> |
+    <a asp-action="Index">Back to Sponsor Types</a>
+</div>

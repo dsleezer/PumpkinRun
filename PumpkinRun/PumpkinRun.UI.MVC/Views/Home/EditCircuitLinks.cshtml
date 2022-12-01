@@ -1,0 +1,51 @@
+﻿@model PumpkinRun.DATA.EF.Models.CircuitLink
+
+@{
+    ViewData["Title"] = "Edit Circuit | " + @Model.CircuitName;
+}
+
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>@ViewData["Title"]</h4>
+                </div>
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+                        <form asp-action="EditCircuitLinks">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="CircuitLinkId" />
+                            <div class="form-group">
+                                <input asp-for="CircuitName" class="form-control col-md-4 mb20" placeholder="Circuit Name" />
+                                <span asp-validation-for="CircuitName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="CircuitUrl" class="form-control col-md-4 mb20" placeholder="Circuit Url" />
+                                <span asp-validation-for="CircuitUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="CircuitRaceDate" class="form-control col-md-4 mb20" placeholder="Circuit Race Date" />
+                                <span asp-validation-for="CircuitRaceDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary pull-right mt30" />
+                                <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

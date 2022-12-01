@@ -1,0 +1,316 @@
+﻿@{
+    ViewData["Title"] = "HowToHelp Page";
+
+}
+
+<header id="how-to-help" class="backstretched single-page-hero">
+    <div class="dark-overlay single-page-hero">
+        <div class="container single-page-hero">
+            <div class="vertical-center-js text-center">
+                <h1>How To Help</h1>
+                <p class="section-sub-title">Join the fun!</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<section id="our-courses">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-justified image-tabs" id="course-tabs" role="tablist">
+                                        <li role="presentation" class="school-clubs active">
+                                            <a href="#school-clubs" aria-controls="school-clubs" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>School Clubs</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="volunteers">
+                                            <a href="#volunteers" aria-controls="volunteers" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Volunteers</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="jareds-costumes">
+                                            <a href="#jareds-costumes" aria-controls="jareds-costumes" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Jared's Costumes</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content pt60" id="tabs-collapse">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="school-clubs">
+                                            <div class="tab-inner">
+                                                <div class="row">
+
+                                                    <div class="col-md-12 mb40">
+                                                        <div class="row">
+                                                            <div class="col-xs-4">
+                                                                <div class="hover-effect smoothie mb40">
+                                                                    <a class="smoothie">
+                                                                        <img src="~/assets/images/kid-start-1.jpg" alt="Image" class="img-responsive smoothie">
+                                                                    </a>
+                                                                    <div class="hover-caption dark-overlay smoothie text-center">
+                                                                        <div class="vertical-center-js">
+                                                                            Sunnyside Sun Runners<br />
+                                                                            First Olathe school running club
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-8">
+                                                                <h2 class="mt0 mb40">Registering School Club Runners</h2>
+
+                                                                @if (User.IsInRole("Admin"))
+                                                                {
+                                                                    <div class="admin-form mt-5 mb-5">
+                                                                        <h4 class="text-danger">Admin File Upload - School Race Form PDF</h4>
+                                                                        <form asp-action="UploadClub" asp-controller="Home" method="post" enctype="multipart/form-data">
+                                                                            <input type="file" name="SchoolForm" class="form-control" style="width: 75%;" />
+                                                                            <input type="submit" value="Update Form" class="btn btn-primary btn-orange" />
+                                                                        </form>
+                                                                    </div>
+                                                                }
+
+                                                                <p class="mb20">
+                                                                    Please download and complete the
+                                                                    <a href="~/assets/PDF/Registration-Form-School.pdf" target="_blank">
+                                                                        School Registration Form.
+                                                                    </a><br />
+                                                                    Make Checks Payable To: Jared Coones Pumpkin Run
+                                                                    <br /><br />
+                                                                    Please mail completed form, signed releases and check to: </br>
+
+                                                                    Jared Coones Pumpkin Run<br />
+                                                                    P.O. Box 3314<br />
+                                                                    Olathe, Kansas 66063-3314<br /><br />Please contact Carol Brewer with any questions at 913-909-3406 or <a href="@Url.Action("Contact", "Contact")">email us.</a>
+                                                                </p>
+
+                                                                <h2 class="mt0 mb40">Participating Schools</h2>
+                                                                <p>We are pleased to recognize and congratulate the following school running groups. <br />Thank you for your support!</p>
+                                                                <br/>
+                                                                  
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        Arbor Creek Elementary <br/>
+                                                                        Bentwood Blue Jay Joggers  <br/>
+                                                                        Black Bob Blazers  <br/>
+                                                                        Briarwood Running Bears  <br/>
+                                                                        Brougham Fun Runners <br/>
+                                                                        California Trail Middle School  <br/>
+                                                                        Cedar Creek Comet Cruisers <br/>
+                                                                        Central Elementary <br/>
+                                                                        Crisholm Trail Middle School <br/>
+                                                                        Clearwater Creek Running Coyotes <br/>
+                                                                        Countryside Cardinal Racers <br/>
+                                                                        Fairview Elementary <br/>
+                                                                        Forest View Elementary<br/>
+                                                                        Frontier Trail Middle School<br/>
+                                                                        Green Springs Gator Racers<br/>
+                                                                        Havencroft Racers<br/>
+                                                                        Heritage Harriers Running Club<br/>
+                                                                        Indian Creek Elementary<br/>
+                                                                        Liberty View Elementary<br/>
+                                                                        Madison Place Elementary<br/>  
+                                                                    </div>
+                                                                      
+                                                                    <div class="col-md-6">
+                                                                        Mahaffie Running Knights<br/>
+                                                                        Manchester Park<br/>
+                                                                        Meadow Lane Elementary<br/>
+                                                                        Millbrooke Elementary<br/>
+                                                                        Mission Trail Middle School<br/>
+                                                                        Northview Road Runners<br/>
+                                                                        Olathe East High School<br/>
+                                                                        Pleasant Ridge Middle School<br/>
+                                                                        Prairie Center JUST RUN<br/>
+                                                                        Ravenwood Runners <br/>
+                                                                        Regency Place Elementary  <br/>
+                                                                        Ridgeview Runners <br/>
+                                                                        Rolling Ridge Rockets <br/>
+                                                                        Scarborough Speedsters <br/>
+                                                                        Sunnyside Sun Runners <br/>
+                                                                        Tomahawk Trailblazin' Runners <br/>
+                                                                        Walnut Grove Fitness Explorers <br/>
+                                                                        Washington ChampRunners <br/>
+                                                                        Westview Elementary <br/>
+                                                                        Woodland Elementary
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                                <br />
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div role="tabpanel" class="tab-pane fade" id="volunteers">
+                                            <div id="fixpadding">
+
+                                                <section id="our-team">
+                                                    <div class="section-inner" style="padding-top: 30px">
+                                                        <div class="container">
+                                                            <div class="row mb60 text-center">
+                                                                <div class="col-sm-12" style="padding-right:65px">
+                                                                    <h3 class="section-title">We need your help!</h3>
+                                                                    <p class="pt-5">
+                                                                        Volunteers are needed for pre-race and race day activities, in both indoor and outdoor areas.<br />
+                                                                        No previous experience is needed! Please contact Carol Brewer (913-909-3406)<br />
+                                                                        or <a href="@Url.Action("Contact", "Contact")">email us </a>to schedule you. Thank you for the consideration!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="padding-right:50px">
+                                                                <div class="col-md-12">
+                                                                    <div id="music-carousel" class="carousel slide">
+                                                                        <div class="carousel-inner">
+                                                                            <div class="item active">
+                                                                                <div class="row" style="background-color:white">
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/DSC_0634.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/DSC_1210.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/Awards-85.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/DSC_0627.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="item">
+                                                                                <div class="row" style="background-color:white">
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/Jareds-Crew-Taller.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/Olathe-Police-Department.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/Two-Posing.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="hover-effect smoothie">
+                                                                                            <a class="thumbnail smoothie">
+                                                                                                <img src="~/assets/images/Coones-Family-Photo-Pumpkin-Run-e1501732042146.jpg" alt="Image" class="smoothie">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <a data-slide="prev" href="#music-carousel" class="left carousel-control"><i class="fa fa-long-arrow-left"></i></a>
+                                                                        <a data-slide="next" href="#music-carousel" class="right carousel-control"><i class="fa fa-long-arrow-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+                                        <div role="tabpanel" class="tab-pane fade" id="jareds-costumes">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb40">
+                                                        <div class="row">
+                                                            <div class="col-xs-4">
+                                                                <div class="hover-effect smoothie mb40">
+                                                                    <a class="smoothie">
+                                                                        <img src="~/assets/images/Pumpkin.jpg" alt="Image" class="img-responsive smoothie">
+                                                                    </a>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-8">
+                                                                <h2 class="mt0 mb-0">Jared’s Costumes for Kids</h2>
+                                                                <p class="mb20">
+                                                                    <small>
+                                                                        In a new tradition to celebrate Jared’s legacy and honor his love of Halloween, the Jared Coones Pumpkin Run Race Committee is holding its Annual Jared’s Costumes for Kids drive. </br>
+
+                                                                        During Packet Pick-Up, the committee will be collecting new and gently used Halloween Costumes to donate to students throughout the school district who otherwise might not be able to afford one.<br />Please consider donating a costume and bringing the joy of Halloween fun to a child!
+                                                                    </small>
+                                                                </p>
+
+                                                                <a href="@Url.Action("FAQ", "About")#packet">Learn more about Packet Pickup</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

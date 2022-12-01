@@ -1,0 +1,129 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.SponsorType>
+
+@{
+    ViewData["Title"] = "Sponsor Types";
+}
+
+<!-- Hero Banner -->
+<header id="sponsor-types" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1>
+                    Sponsorship
+                    <br><small>Levels</small>
+                </h1>
+                <p>
+                    @*<a class="btn btn-lg btn-primary btn-green page-scroll" href="@Url.Action("Index", "Sponsers")" role="button">BECOME A SPONSOR</a>*@
+                    <a class="btn btn-lg btn-primary page-scroll" href="@Url.Action("Beneficiaries", "Sponsors")" role="button">VIEW OUR BENEFICIARIES</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            <p>
+                We believe that you will find sponsoring our event is a very meaningful opportunity. All of our proceeds are donated to the seven charities that we support as listed on the <a href="@Url.Action("Beneficiaries", "Sponsors")">Beneficiaries page</a>. These charities, in turn, provide much needed research and support to families in our community that are facing the unfamiliarity and uncertainty surrounding their cancer illness. Our current sponsors tell us how inspiring their association with us is on <a href="#">Our Sponsor Messages</a> page. We hope that you will take a moment to review the following information and choose to support the very special 24th Annual Pumpkin Run.
+            </p>
+            <ul>
+                <li><a href="~/assets/PDF/2022-Prospective-Sponsor.pdf" target="_blank">Prospective Sponsor Letter</a></li>
+                <li>Sponsor Presentation (forthcoming)</li>
+                <li>Inquire to us by <a href="@Url.Action("Contact", "Contact")">email</a> and we'll get right back with you.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="our-courses">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+
+                @foreach (PumpkinRun.DATA.EF.Models.SponsorType st in Model)
+                {
+                    <div class="col-md-4 mb40 match-height" style="display: block; ">
+                        <div class="hover-effect smoothie" style="height:400px; background-color:#EEE; ">
+                            @* <a href="#" class="smoothie">
+                        <img src="~/assets/images/Pumpkin.png" alt="Image" class="img-responsive smoothie"></a>*@
+                            <div class="hover-overlay smoothie text-center">
+                                <div class="vertical-center-js" style="padding-top: 181.75px;">
+                                    <h4>@st.SponsorTypeName</h4>
+                                    <h5>Cost: @Html.DisplayFor(modelitem => st.Cost)</h5>
+                                    <h5>Nbr Offered: @st.NbrOffered</h5>
+                                </div>
+                            </div>
+
+                            <div class="hover-caption dark-overlay smoothie text-center" style="background-color: #ccc;">
+                                <div class="vertical-center-js" style="padding-top: 5px;">
+                                    @foreach (var stb in st.SponsorTypeBenefits)
+                                    {
+                                        <div class="benefit-desc">
+                                            <p class="mb10"><small>@stb.Benefit.BenefitDescription</small></p>
+                                        </div>
+
+
+                                    }
+
+                                </div>
+                            </div>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="col-md-6 text-center">
+                                    <button type="button" class="btn btn-dark text-center mt60 mb-3"><a asp-action="Edit" asp-route-id="@st.SponsorTypeName">Edit</a></button>
+                                </div>
+                                    }
+                            </div>
+                        </div>
+                            }
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+                    @*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbrOffered)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrOffered)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SponsorTypeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SponsorTypeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SponsorTypeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

@@ -1,0 +1,119 @@
+﻿@model PumpkinRun.DATA.EF.Models.RaceResult
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4 class="text-danger">Are you sure you want to delete these race results?</h4>
+                </div>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RaceYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RaceYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner1Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner1Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner1Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner1Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner2Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner2Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner2Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner2Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner3Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner3Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaleWinner3Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaleWinner3Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemaleWinner1Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemaleWinner1Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemaleWinner1Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemaleWinner1Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemalWinner2Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemalWinner2Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemaleWinner2Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemaleWinner2Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemaleWinner3Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemaleWinner3Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FemaleWinner3Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FemaleWinner3Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalResultsUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExternalResultsUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RacePhotosUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RacePhotosUrl)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="RaceResultId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to Race Results</a>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</section>

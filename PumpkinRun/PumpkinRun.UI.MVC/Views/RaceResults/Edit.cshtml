@@ -1,0 +1,211 @@
+﻿@model PumpkinRun.DATA.EF.Models.RaceResult
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>@ViewData["Title"]</h4>
+                </div>
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="RaceResultId" />
+                            <div class="form-group">
+                                <label asp-for="RaceYear.Year" class="control-label"></label>
+                                <input type="number" min="1980" max="@DateTime.Now.Year" step="1" asp-for="RaceYear" class="form-control" value="@Model.RaceYear.Year" />
+                                <span asp-validation-for="RaceYear.Year" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner1Name" class="control-label"></label>
+                                <input asp-for="MaleWinner1Name" class="form-control" />
+                                <span asp-validation-for="MaleWinner1Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner1Time" class="control-label"></label>
+                                <input asp-for="MaleWinner1Time" class="form-control" />
+                                <span asp-validation-for="MaleWinner1Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner2Name" class="control-label"></label>
+                                <input asp-for="MaleWinner2Name" class="form-control" />
+                                <span asp-validation-for="MaleWinner2Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner2Time" class="control-label"></label>
+                                <input asp-for="MaleWinner2Time" class="form-control" />
+                                <span asp-validation-for="MaleWinner2Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner3Name" class="control-label"></label>
+                                <input asp-for="MaleWinner3Name" class="form-control" />
+                                <span asp-validation-for="MaleWinner3Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MaleWinner3Time" class="control-label"></label>
+                                <input asp-for="MaleWinner3Time" class="form-control" />
+                                <span asp-validation-for="MaleWinner3Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemaleWinner1Name" class="control-label"></label>
+                                <input asp-for="FemaleWinner1Name" class="form-control" />
+                                <span asp-validation-for="FemaleWinner1Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemaleWinner1Time" class="control-label"></label>
+                                <input asp-for="FemaleWinner1Time" class="form-control" />
+                                <span asp-validation-for="FemaleWinner1Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemalWinner2Name" class="control-label"></label>
+                                <input asp-for="FemalWinner2Name" class="form-control" />
+                                <span asp-validation-for="FemalWinner2Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemaleWinner2Time" class="control-label"></label>
+                                <input asp-for="FemaleWinner2Time" class="form-control" />
+                                <span asp-validation-for="FemaleWinner2Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemaleWinner3Name" class="control-label"></label>
+                                <input asp-for="FemaleWinner3Name" class="form-control" />
+                                <span asp-validation-for="FemaleWinner3Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FemaleWinner3Time" class="control-label"></label>
+                                <input asp-for="FemaleWinner3Time" class="form-control" />
+                                <span asp-validation-for="FemaleWinner3Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ExternalResultsUrl" class="control-label"></label>
+                                <input asp-for="ExternalResultsUrl" class="form-control" />
+                                <span asp-validation-for="ExternalResultsUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RacePhotosUrl" class="control-label"></label>
+                                <input asp-for="RacePhotosUrl" class="form-control" />
+                                <span asp-validation-for="RacePhotosUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">Back to Race Results</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<h2>Edit</h2>
+
+    <h4>RaceResult</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="RaceResultId" />
+    <div class="form-group">
+    <label asp-for="RaceYear" class="control-label"></label>
+    <input asp-for="RaceYear" class="form-control" />
+    <span asp-validation-for="RaceYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner1Name" class="control-label"></label>
+    <input asp-for="MaleWinner1Name" class="form-control" />
+    <span asp-validation-for="MaleWinner1Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner1Time" class="control-label"></label>
+    <input asp-for="MaleWinner1Time" class="form-control" />
+    <span asp-validation-for="MaleWinner1Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner2Name" class="control-label"></label>
+    <input asp-for="MaleWinner2Name" class="form-control" />
+    <span asp-validation-for="MaleWinner2Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner2Time" class="control-label"></label>
+    <input asp-for="MaleWinner2Time" class="form-control" />
+    <span asp-validation-for="MaleWinner2Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner3Name" class="control-label"></label>
+    <input asp-for="MaleWinner3Name" class="form-control" />
+    <span asp-validation-for="MaleWinner3Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="MaleWinner3Time" class="control-label"></label>
+    <input asp-for="MaleWinner3Time" class="form-control" />
+    <span asp-validation-for="MaleWinner3Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemaleWinner1Name" class="control-label"></label>
+    <input asp-for="FemaleWinner1Name" class="form-control" />
+    <span asp-validation-for="FemaleWinner1Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemaleWinner1Time" class="control-label"></label>
+    <input asp-for="FemaleWinner1Time" class="form-control" />
+    <span asp-validation-for="FemaleWinner1Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemalWinner2Name" class="control-label"></label>
+    <input asp-for="FemalWinner2Name" class="form-control" />
+    <span asp-validation-for="FemalWinner2Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemaleWinner2Time" class="control-label"></label>
+    <input asp-for="FemaleWinner2Time" class="form-control" />
+    <span asp-validation-for="FemaleWinner2Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemaleWinner3Name" class="control-label"></label>
+    <input asp-for="FemaleWinner3Name" class="form-control" />
+    <span asp-validation-for="FemaleWinner3Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="FemaleWinner3Time" class="control-label"></label>
+    <input asp-for="FemaleWinner3Time" class="form-control" />
+    <span asp-validation-for="FemaleWinner3Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="ExternalResultsUrl" class="control-label"></label>
+    <input asp-for="ExternalResultsUrl" class="form-control" />
+    <span asp-validation-for="ExternalResultsUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="RacePhotosUrl" class="control-label"></label>
+    <input asp-for="RacePhotosUrl" class="form-control" />
+    <span asp-validation-for="RacePhotosUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+    </form>
+    </div>
+    </div>
+
+    <div>
+    <a asp-action="Index">Back to List</a>
+    </div>*@
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

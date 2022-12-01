@@ -1,0 +1,83 @@
+﻿@model PumpkinRun.DATA.EF.Models.MessageFromTom
+
+@{
+    ViewData["Title"] = "Update Home Page Message Section";
+}
+
+<!-- header banner -->
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>@ViewData["Title"]</h4>
+                </div>
+
+                <!-- edit form -->
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+
+                        <form asp-action="EditTomMessage" id="editform" class="edit-form" enctype="multipart/form-data">
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="MessageId" />
+                            <input type="hidden" asp-for="MessageContent" id="MessageContent" />
+                            <div class="form-group">
+                                <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+                                <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+
+                                <div id="editor">
+                                    @Html.Raw(Model.MessageContent)
+                                </div>
+                                <span asp-validation-for="MessageContent" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" asp-for="Image1" class="form-control col-md-4 mb20" />
+                                <span asp-validation-for="Photo1" class="text-danger" value="Photo1"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" asp-for="Image2" class="form-control col-md-4 mb20" />
+                                <span asp-validation-for="Photo2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" asp-for="Image3" class="form-control col-md-4 mb20" />
+                                <span asp-validation-for="Photo3" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" asp-for="Image4" class="form-control col-md-4 mb20" />
+                                <span asp-validation-for="Photo4" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="button" onclick="populatetextbox(event)" value="Update" class="btn btn-primary pull-right mt30" />
+                                <a asp-action="Index" class="btn btn-secondary">Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var quill = new Quill('#editor', {
+        modules: { toolbar: true },
+        theme: 'snow'
+    });
+</script>
+
+
+@section Scripts {
+    <script>
+        function populatetextbox(e) {
+            e.preventDefault();
+            let messagecontent = document.getElementById("MessageContent");
+            messagecontent.value = $("#editor .ql-editor").html();
+            console.log($("#editor .ql-editor").html());
+            console.log(messagecontent);
+            $('#MessageContent').closest("form").submit();
+        }
+    </script>
+    }

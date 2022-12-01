@@ -1,0 +1,100 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.RaceVideo>
+
+@{
+    ViewData["Title"] = "Race Videos";
+}
+
+<header id="race-videos" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1>
+                    RACE VIDEOS
+                </h1>
+                <p>
+                    <a class="btn btn-lg btn-primary btn-green page-scroll" href="@Url.Action("Index", "RaceResults")" role="button">RACE RESULTS</a>
+                    @*<a class="btn btn-lg btn-primary page-scroll" href="@Url.Action("Index", "RaceVideos")" role="button">RACE VIDEOS</a>*@
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="our-courses">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <h1 class="mb-3">
+                    Race Videos
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-lg btn-primary page-scroll" asp-action="Create" role="button">Add</a>
+                    }
+
+                </h1>
+                @foreach (var item in Model)
+                {
+                    <button class="accordion">@item.RaceYear.Year</button>
+                    <div class="panel">
+                        @if (item.VideoUrl != null)
+                        {
+                            string[] words = item.VideoUrl.Split('=');
+                            string embedUrl = "https://www.youtube.com/embed/" + words[1];
+
+                            <div class="mx-auto text-center mt-5">
+                                <iframe width="560" height="315" src=@embedUrl title="YouTube video player"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="mx-auto">
+                                </iframe>
+                            </div>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-lg btn-primary page-scroll" href="@Url.Action("Edit", "RaceVideos")" role="button">Edit</a>
+                            }
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+@*<h2>Index</h2>
+
+    <p>
+    <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => model.RaceYear)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.VideoTitle)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.VideoUrl)
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.RaceYear)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.VideoTitle)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.VideoUrl)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.RaceVideoId">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.RaceVideoId">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.RaceVideoId">Delete</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>
+*@

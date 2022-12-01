@@ -1,0 +1,425 @@
+﻿@model PumpkinRun.UI.MVC.Models.RaceViewModel
+@{
+    ViewData["Title"] = "The Race";
+}
+
+<header id="the-race" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1 style="margin-bottom: 15px;">
+                    THE RACE <br />
+                </h1>
+                <p style="line-height: 1.5;">
+                    The Jared Coones Memorial 5K Pumpkin Run/Walk is an event for the entire family. <br />
+                    You don’t have to be a trained runner or walker to participate.
+                    <br />Join us for all of the fun before and after the 5K!
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-primary page-scroll" href="@Url.Action("Index", "Register")" role="button">Registration Info</a>
+                    <a class="btn btn-lg btn-secondary page-scroll" href="@Url.Action("Index", "RaceResults")" role="button">VIEW PAST RACES</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="race-info">
+    <div class="section-inner">
+        <div class="container">
+            @*<div class="row mb60 text-center">
+                <div class="col-sm-12">
+                <h3 class="section-title mb-4">Join The Fun</h3>
+                <p style="line-height: 1.5;">
+                The Jared Coones Memorial 5K Pumpkin Run/Walk is an event for the entire family. <br />
+                You don’t have to be a trained runner or walker to participate.
+                <br />Join us for all of the fun before and after the 5K.
+                </p>
+                </div>
+                </div>*@
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12" role="tabpanel">
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-justified image-tabs" id="race-info-tabs" role="tablist">
+                                        <li role="#presentation" class="schedule active">
+                                            <a href="#schedule" aria-controls="schedule" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Schedule</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="packet-pickup">
+                                            <a href="#packet-pickup" aria-controls="packet-pickup" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Packet Pickup</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="race-day-info">
+                                            <a href="#race-day-info" aria-controls="race-day-info" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Race Day Info</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="directions-parking">
+                                            <a href="#directions-parking" aria-controls="directions-parking" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Directions</span>
+                                            </a>
+                                        </li>
+                                        @*<li role="presentation" class="awards">
+                                            <a href="#awards" aria-controls="awards" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                            <span>Awards</span>
+                                            </a>
+                                            </li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content" id="tabs-collapse" style="padding-top: 30px;">
+
+                                        <!-- Schedule Tab -->
+                                        <div role="tabpanel" class="tab-pane fade in active" id="schedule">
+                                            <div class="tab-inner">
+                                                <div class="row">
+
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <h3><span>6:00 to 7:30 AM</span></h3>
+
+                                                            </div>
+                                                            <div class="col-sm-8 col-xs-12">
+                                                                <h5><span>Late Registration and Packet Pickup</span></h5>
+                                                                <p class="mb20">
+                                                                    Find more details regarding Packet Pickup in the tab above.
+                                                                    @*<p class="lead">16 week course.</p>
+                                                                        <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                                                        <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-sm-12">
+
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <h3><span>8:00 AM</span></h3>
+                                                            </div>
+                                                            <div class="col-sm-8 col-xs-12">
+                                                                <h5><span>5K Run/Walk Start</span></h5>
+                                                                <p class="mb20">Check out the Course Map in Race Day Info in the tab above.</p>
+                                                                @*<p class="lead">16 week course.</p>
+                                                                    <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                                                    <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <h3><span>After Race (9:15 AM)</span></h3>
+                                                            </div>
+                                                            <div class="col-sm-8 col-xs-12">
+                                                                <h5><span>50-Yard Tot Trot / Run for the Pumpkins</span></h5>
+                                                                @*<p class="lead">16 week course.</p>*@
+                                                                <p class="mb20">Calling all kids! After the 5K is over bring your friends and family over to the East parking lot for the 50 yard Tot Trot / Run for the Pumpkins. This fun event, sponsored by the Campbell Family is free for all kids ages 1 to 5. It’s a race where everyone is a winner because at the end of each race you will get your own pumpkin to take home with you.</p>
+                                                                @*<a href="single-course.html" class="btn btn-primary btn-green">View Details</a>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <h3><span>9:30 AM</span></h3>
+                                                            </div>
+                                                            <div class="col-sm-8 col-xs-12">
+                                                                <h5><span>Awards Ceremony</span></h5>
+                                                                @*<p class="mb20">See Awards info below for more details.</p>*@
+                                                                <div class="col-xs-12">
+                                                                    @*<h3>Awards</h3>*@
+                                                                    <p class="mb20">
+                                                                        Awards will be presented after the race in the Black Bob Elementary School gymnasium for the following categories:
+                                                                        <br />
+                                                                        <i class="fa fa-angle-right"></i>The top three overall male and female finishers<br />
+                                                                        <i class="fa fa-angle-right"></i>The top male and female finishers in each age group: <br>
+                                                                        Ages 7 and under, 8-10, 11-14, 15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79, 80 and up<br />
+                                                                        <br />
+                                                                        Three special awards will also be presented this year, including a new award dedicated to the legacy of Sumi Coones.<br />
+                                                                        <i class="fa fa-angle-right"></i>Jared Coones Courage Award<br />
+                                                                        <i class="fa fa-angle-right"></i>Jayne Coones Hope Award<br />
+                                                                        <i class="fa fa-angle-right"></i>Sumi Coones Kindness Award<br />
+                                                                        <br />
+                                                                        Medals will be provided to the age group winners. If you are unable to pick up your medal on race day, they will be available at Black Bob Elementary School following the race.
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                @*<p class="lead">16 week course.</p>*@
+                                                                @*<p class="mb20">Even the youngest family member can participate. The Tot Trot is free and each child will receive a miniature pumpkin at the end of their race.</p>*@
+                                                                @*<a href="single-course.html" class="btn btn-primary btn-green">View Details</a>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Packet Pickup Tab-->
+                                        <div role="tabpanel" class="tab-pane fade" id="packet-pickup">
+                                            <div class="tab-inner">
+                                                <div class="row">
+
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <h5><span>Packet Pick Up & Race registration will take place at Black Bob Elementary School on:</span></h5>
+                                                                <p class="mb20">
+                                                                    <a class="btn btn-primary btn-sm" asp-action="EditRace" asp-controller="Home" asp-route-id="@Model.RaceDayInfo.RaceDayId">Edit Pickup Options</a>
+                                                                    <br />
+                                                                    @Model.RaceDayInfo.PacketPickupOption1<br />
+                                                                    @Model.RaceDayInfo.PacketPickupOption2<br />
+                                                                    @Model.RaceDayInfo.PacketPickupOption3<br />
+                                                                </p>
+                                                                <p class="mb20">
+                                                                    If you registered with a school running club, all your packets will be delivered to that school on @Html.DisplayFor(model => model.RaceDayInfo.SchoolPickupDate).
+                                                                    <a class="btn btn-primary btn-sm" asp-action="EditRace" asp-controller="Home" asp-route-id="@Model.RaceDayInfo.RaceDayId">Edit Pickup Date</a>
+                                                                    <br />
+                                                                    Don’t forget to bring new or gently used costumes to packet pickup to donate as part of Jared’s Costumes for Kids!
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Race Day Info Tab -->
+                                        <div role="tabpanel" class="tab-pane fade" id="race-day-info">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-md-5">
+                                                                <h3>Race Day Instructions</h3>
+                                                                <p class="mb20">
+                                                                    For race day instructions, please take a look at our flyer <a href="~/assets/docs/@Model.RaceDayInfo.InstructionsFile">here</a>.
+                                                                    <br />
+                                                                    <a class="btn btn-primary btn-sm" asp-action="EditRace" asp-controller="Home" asp-route-id="@Model.RaceDayInfo.RaceDayId">Edit Instructions Flyer</a>
+                                                                </p>
+                                                                <h3>Runner Protection</h3>
+                                                                <p class="mb20">
+                                                                    Radio headsets, roller skates, in-line skates, hand/foot cycles and dogs are not allowed on the course. First aid will be available at the school.
+                                                                    <br />
+                                                                    <br />
+                                                                    Baby strollers and joggers are welcome on the course for walkers only. Walkers with baby strollers will start the course after all other walkers.
+                                                                    <br />
+                                                                </p>
+                                                            </div>
+                                                            <div class="class-md-7">
+                                                                <h3>Course Map</h3>
+                                                                <p class="mb20">
+                                                                    <!-- Add anchor tag to Black Bob Elementary, linking to directions section -->
+                                                                    The race will start and end on the north side of Black Bob Elementary School,
+                                                                    <br />as marked by the red pin on the map below.<br />
+                                                                    Use the map below or
+                                                                    <a href="https://maps.google.com/maps/ms?msid=204021475626901649811.0004c3001a61212ae07dc&msa=0&gl=US&hl=en&ie=UTF8&t=m&ll=38.865642,-94.7721&spn=0.02339,0.042915&z=14&source=embed">
+                                                                        click to view
+                                                                    </a>a larger map and get directions from your location.
+                                                                </p>
+                                                                <p class="mb20">
+                                                                <p>
+                                                                    <iframe loading="lazy" src="https://maps.google.com/maps/ms?msid=204021475626901649811.0004c3001a61212ae07dc&amp;msa=0&amp;gl=US&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;source=embed&amp;ll=38.860763,-94.770427&amp;spn=0.01604,0.027466&amp;z=15&amp;output=embed" width="640" height="480" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe><br>
+                                                                </p>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Directions Tab -->
+                                        <div role="tabpanel" class="tab-pane fade" id="directions-parking">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+                                                                <h3>Pre-Race Parking & Shuttle Buses</h3>
+                                                                <p class="mb20">
+                                                                    General parking is available at the following locations:
+                                                                    <br /><br />
+                                                                    <i class="fa fa-angle-right"></i>Frontier Trail Middle School, located at 15300 W. 143rd Street in Olathe. FTJHS is on the North side of 143rd St. just west of Blackbob Rd.<br />
+                                                                    <i class="fa fa-angle-right"></i>MidAmerica Nazarene University, located at 143rd and Mur-Len.  Follow Mur-Len to 143rd.  Turn west on 143rd which turns into Sheridan.  Turn north on Lindenwood to the parking lot entrance.<br />
+                                                                    <br />
+                                                                    Shuttle buses, provided by First Student Transit Services, will transport race participants, family members and spectators to and from the event.  Buses will run from both parking lots starting at 6:15 AM.<br />
+                                                                    <br />
+                                                                    Please plan to arrive early! <br>
+                                                                    THE LAST SHUTTLE BUS WILL LEAVE the lots at 7:30 AM.<br />
+                                                                    <br />
+                                                                </p>
+                                                                <h3>Post-Race Shuttle Buses</h3>
+                                                                <p class="mb20">
+                                                                    Shuttle buses will resume service to the satellite parking lots at 9:30 AM.  A Shuttle Bus Stop will be located on the Southbound side of Brougham at 146th Terrace (the Northwest corner of the school).
+                                                                    <br />
+                                                                </p>
+                                                            </div>
+                                                            <div class="class-md-6">
+                                                                <h3>Location & Directions</h3>
+                                                                <p class="mb20">
+                                                                    The Jared Coones Memorial Pumpkin 5K Run/Walk will be held at:<br />
+                                                                    Black Bob Elementary School.<br />
+                                                                    14701 S. Brougham Drive, Olathe, Kansas.<br />
+                                                                    <br />
+                                                                    Use the map below or
+                                                                    <a href="https://maps.google.com/maps/ms?msid=204021475626901649811.0004c3001a61212ae07dc&msa=0&gl=US&hl=en&ie=UTF8&t=m&ll=38.865642,-94.7721&spn=0.02339,0.042915&z=14&source=embed">
+                                                                        click to view
+                                                                    </a>
+                                                                    a larger map and get directions from your location.
+
+                                                                </p>
+                                                                <p class="mb20">
+                                                                <p>
+                                                                    <iframe loading="lazy" src="https://maps.google.com/maps/ms?msid=204021475626901649811.0004c3001a61212ae07dc&amp;msa=0&amp;gl=US&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=38.865642,-94.7721&amp;spn=0.02339,0.042915&amp;z=14&amp;output=embed" width="500" height="350" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                                                                </p>
+                                                                </p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*<!-- Awards-->
+                                            <div role="tabpanel" class="tab-pane fade" id="awards">
+                                            <div class="tab-inner">
+                                            <div class="row">
+                                            <div class="col-sm-12 mb40">
+                                            <div class="row">
+                                            <div class="col-sm-10 col-xs-12">
+                                            <h5><span>Photoshop Basics</span></h5>
+                                            <p class="lead">16 week course.</p>
+                                            <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                            <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-12 text-right">
+                                            <h1><span>$199</span></h1>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-12 mb40">
+                                            <div class="row">
+                                            <div class="col-sm-10 col-xs-12">
+                                            <h5><span>Automotive Repair</span></h5>
+                                            <p class="lead">16 week course.</p>
+                                            <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                            <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-12 text-right">
+                                            <h1><span>$249</span></h1>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-12 mb40">
+                                            <div class="row">
+                                            <div class="col-sm-10 col-xs-12">
+                                            <h5><span>Photography for Beginners</span></h5>
+                                            <p class="lead">16 week course.</p>
+                                            <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                            <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-12 text-right">
+                                            <h1><span>$199</span></h1>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="col-sm-4">
+                    <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                    <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Summer Special</a>
+                    </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                    <p>Phosfluorescently e-enable multidisciplinary architectures without team driven services. Credibly innovate high-payoff alignments before resource sucking metrics. Uniquely repurpose granular synergy after tactical internal or "organic" sources. Conveniently fabricate go forward niches vis-a-vis top-line partnerships. Progressively brand 24/7 deliverables whereas diverse total linkage. Synergistically coordinate process-centric metrics vis-a-vis 24/7 expertise. Uniquely plagiarize enterprise models for business bandwidth. Uniquely redefine robust networks via low-risk high-yield materials. Professionally reinvent ethical benefits rather than reliable e-commerce. Globally synergize multifunctional human capital whereas customer directed manufactured products. Rapidiously deploy open-source potentialities whereas magnetic benefits. Uniquely impact best-of-breed customer service whereas.</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading smoothie" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Outdoor Persuits</a>
+                    </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading smoothie" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Autumn Event</a>
+                    </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                    <p>Enthusiastically disseminate bleeding-edge ROI rather than accurate results. Collaboratively scale interoperable experiences for dynamic services. Appropriately embrace web-enabled potentialities rather than proactive human capital. Distinctively mesh resource-leveling e-commerce without B2B applications. Rapidiously iterate resource sucking intellectual capital vis-a-vis alternative experiences. Dramatically exploit unique communities rather than customized customer service. Energistically pursue high standards in manufactured products after top-line expertise.</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading smoothie" role="tab" id="heading-four">
+                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">Ski Weekend</a>
+                    </h4>
+                    </div>
+                    <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-four">
+                    <div class="panel-body">
+                    <p>Enthusiastically disseminate bleeding-edge ROI rather than accurate results. Collaboratively scale interoperable experiences for dynamic services. Appropriately embrace web-enabled potentialities rather than proactive human capital. Distinctively mesh resource-leveling e-commerce without B2B applications. Rapidiously iterate resource sucking intellectual capital vis-a-vis alternative experiences. Dramatically exploit unique communities rather than customized customer service. Energistically pursue high standards in manufactured products after top-line expertise.</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading smoothie" role="tab" id="heading-five">
+                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-five" aria-expanded="false" aria-controls="collapse-four">Books 4 Kidz</a>
+                    </h4>
+                    </div>
+                    <div id="collapse-five" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-five">
+                    <div class="panel-body">
+                    <p>Enthusiastically disseminate bleeding-edge ROI rather than accurate results. Collaboratively scale interoperable experiences for dynamic services. Appropriately embrace web-enabled potentialities rather than proactive human capital. Distinctively mesh resource-leveling e-commerce without B2B applications. Rapidiously iterate resource sucking intellectual capital vis-a-vis alternative experiences. Dramatically exploit unique communities rather than customized customer service. Energistically pursue high standards in manufactured products after top-line expertise.</p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</section>

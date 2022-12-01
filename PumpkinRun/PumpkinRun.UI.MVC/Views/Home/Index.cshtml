@@ -1,0 +1,285 @@
+﻿@model PumpkinRun.UI.MVC.Models.HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+<header id="home" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1 class="px-0 mb-5">
+                    Jared Coones <br /><small>Memorial Pumpkin 5k Run/Walk</small>
+                    <br />
+                    <small>
+                        @string.Format($"{Model.RaceDayInfo.ScheduledDate:D}")
+                    </small>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <br />
+                        <a class="btn btn-primary btn-sm" asp-action="EditRace" asp-controller="Home" asp-route-id="@Model.RaceDayInfo.RaceDayId">
+                            Edit Race Date
+                        </a>
+                    }
+                </h1>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Register")" role="button">Register</a>
+                    <a class="btn btn-lg btn-secondary" href="https://www.paypal.com/donate/?hosted_button_id=768GDPGPAHY6S&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWxvYmplY3RzLmNvbS9kb25hdGUvc2RrL2RvbmF0ZS1zZGsuanMiLCJhdHRycyI6eyJkYXRhLXVpZCI6IjM1NWYxMWEyMzhfbXRnNm10ZTZtamMifX0&targetMeta=eyJ6b2lkVmVyc2lvbiI6IjlfMF81OCIsInRhcmdldCI6IkRPTkFURSIsInNka1ZlcnNpb24iOiIwLjguMCJ9" target="_blank" role="button">Donate</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+@if (User.IsInRole("Admin"))
+{
+    <section>
+        <div class="mt60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 mt60">
+                        <a asp-action="ToggleSilentAuction" class="btn btn-secondary">
+                            @if (Model.SilentAuction.IsDisplayed)
+                            {
+                                <span>Disable Silent Auction Message</span>
+                            }
+                            else
+                            {
+                                <span>Enable Silent Auction Message</span>
+                            }
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+@if (Model.SilentAuction.IsDisplayed)
+{
+    <section id="silent-auction">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <h3 class="section-title text-center">
+                            Silent Auction
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="EditSilentAuction" asp-route-id="@Model.SilentAuction.Said" class="btn btn-primary btn-green">Edit</a>
+                            }
+                        </h3>
+
+                        <div class="text-left p-5">
+
+                            <p>@Model.SilentAuction.AuctionMessage</p>
+                            <a href="@Model.SilentAuction.AuctionUrl" class="btn btn-orange btn-primary">Go to auction</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section id="our-mission">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row mb60 text-center">
+                <div class="col-md-3">
+                    <img src="~/assets/images/pumpkin.png" class="img-responsive smoothie img-pumpkin" />
+                </div>
+                <div class="col-md-8">
+
+                    <h3 class="section-title">Our Mission</h3>
+
+                    <div class="text-left p-5">
+
+                        <p><img src="~/assets/images/pumpkin-01.png" class="pumpkin-bullet-point d-inline-block pe-2" />To honor the lives of Jared and Jayne Coones</p>
+                        <p><img src="~/assets/images/pumpkin-01.png" class="pumpkin-bullet-point d-inline-block pe-2" />To create an event that celebrates family and community</p>
+                        <p><img src="~/assets/images/pumpkin-01.png" class="pumpkin-bullet-point d-inline-block pe-2" />To raise funds for research and organizations that support cancer patients and their families</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="home-banner" class="hover-shift smoothie match-height" data-mh="page-splitter">
+    <div class="container match-height" data-mh="page-splitter">
+        <div class="row">
+            <div class="col-md-4 dark-overlay fill-left smoothie">
+                <div class="section-inner">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10">
+                            <h2>@(Model.HomeRaceInfo.PumpkinRunRaceDate.Year - 1999) Years Running</h2>
+                            <h3 class="section-sub-title mb40">$865,000 Dollars Donated</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="message-from-tom">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3 class="section-title py-5">
+                        A Message From Tom Coones
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="EditTomMessage" asp-route-id="@Model.MessageFromTom.MessageId" class="btn btn-primary btn-green">Edit</a>
+                        }
+                    </h3>
+
+                    <p>
+                        @Html.Raw(Model.MessageFromTom.MessageContent)
+                    </p>
+                    @if (Model.MessageFromTom.Photo3 != null)
+                    {
+                        <div class="col-md-6 mb40 match-height">
+                            <div class="hover-effect smoothie">
+                                <img src="assets/images/@Model.MessageFromTom.Photo3" alt="Image" class="img-responsive smoothie">
+                            </div>
+                        </div>
+                    }
+                    @if (Model.MessageFromTom.Photo4 != null)
+                    {
+                        <div class="col-md-6 mb40 match-height">
+                            <div class="hover-effect smoothie">
+                                <img src="assets/images/@Model.MessageFromTom.Photo4" alt="Image" class="img-responsive smoothie">
+                            </div>
+                        </div>
+                    }
+                    <div class="mb90 clearfix"></div>
+                </div>
+
+                <div class="col-sm-3 col-sm-offset-1 sidebar">
+                    <div class="gallery-widget widget mb40">
+                        <div class="widget-content">
+                            <div class="gallery-list">
+                                @if (Model.MessageFromTom.Photo1 != null)
+                                {
+                                    <img src="~/assets/images/@Model.MessageFromTom.Photo1" alt="Message from Tom photo 1" class="py-5" />
+                                }
+                                @if (Model.MessageFromTom.Photo2 != null)
+                                {
+                                    <img src="~/assets/images/@Model.MessageFromTom.Photo2" alt="Message from Tom photo 1" class="py-5" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="more-than-4">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row mb60 text-center">
+                <div class="col-md-3">
+                    <img src="~/assets/images/Banners/unnamed.jpg" class="img-responsive smoothie img-pumpkin pb-5" />
+
+
+
+                </div>
+                <div class="col-md-8">
+
+                    <h3 class="section-title">More than 4 5K Circuit</h3>
+
+                    <div class="text-left p-5">
+
+                        <p>
+                            All childhood cancers combined receive less than 4% of the National Institute of Health's budget and our children with cancer deserve to have #MoreThan4. Several Kansas City Area childhood cancer
+                            organizations have joined together in an effort to change that statistic through our "More Than 4 Run/Walk 5K Circuit"
+                        </p>
+                        <br />
+                        <p>
+                            Each organization hosts their own 5K in the Kansas City area and when you participate in ALL of the 5K's, you will receive a special 20K medal for your accomplishment and you will help increase
+                            support and funding for childhood cancers. You will be making a difference for children with cancer through your participation and you will crush 20K in the process!
+                        </p>
+                        <br />
+                        <p>
+                            <strong>
+                                Below are the participating organizations, race dates, and individual registration sites for @Model.HomeRaceInfo.PumpkinRunRaceDate.Year. You simply register for all of the 5K's, either in person or virtually, and you will receive
+                                your 20K medal when you cross the finish line at the final race which is the Jared Coones Memorial 5K Pumpkin Run/Walk, @($"{Model.HomeRaceInfo.PumpkinRunRaceDate:MMMM}") @Model.HomeRaceInfo.PumpkinRunRaceDate.Day. Medals will be mailed to virtual runners who are not present that day
+                                to receive theirs.
+                            </strong>
+                        </p>
+                        <br />
+                        <p>
+                            <strong>
+                                Join our collaborative effort and help us raise #MoreThan4 for children with cancer.
+                            </strong>
+                        </p>
+
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.CircuitLinks)
+                            {
+                                <li class="col-md-3">
+                                    <a class="btn-primary text-center match-height p-2" href="@item.CircuitUrl" target="_blank">
+
+                                        <p class=""><strong>@item.CircuitName</strong></p>
+                                        <p class="">@($"{item.CircuitRaceDate:d}")</p>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a asp-action="EditCircuitLinks" asp-route-id="@item.CircuitLinkId" class="btn btn-primary btn-green">Edit</a>
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*<section id="more-than-4">
+    <div class="section-inner">
+    <div class="container">
+    <div class="row">
+*@
+<div id="countdown">
+    <div id="timer">
+        <div id="days"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
+</div>
+@*            </div>
+    </div>
+    </div>
+    </section>
+*@
+@section Scripts {
+
+<script>
+
+    let racedate = "@(Model.RaceDayInfo.ScheduledDate)";
+
+    setInterval(function() { makeTimer(racedate); }, 1000);
+
+
+
+</script>
+}

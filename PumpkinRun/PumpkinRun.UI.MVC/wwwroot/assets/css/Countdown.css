@@ -1,0 +1,87 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+
+#days {
+    font-size: 200px;
+    color: #CF7B20;
+}
+
+#hours {
+    font-size: 200px;
+    color: #DDD1AE;
+}
+
+#minutes {
+    font-size: 200px;
+    color: #8D3312;
+}
+
+#seconds {
+    font-size: 70px;
+    color: #A94915;
+}
+
+#countdown {
+    background-image: url("/assets/images/race-day-237-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+#timer {
+    display: inline-block;
+    line-height: 1;
+    padding: 20px;
+    font-size: 40px;
+    
+    }
+
+    #timer{
+    display: block;
+    font-size: 20px;
+    color: white;
+    }
+
+#timer {
+    text-align: center;
+    font-family: 'Covered By Your Grace', cursive;
+    color: white;
+    background: #a96e421f;
+}
+
+
+
+
+
+
+
+
+#summer-term {
+    background-color:white;
+
+}
+
+#winter-term {
+    background-color: white;
+}
+
+#online-learning {
+    background-color: white;
+}
+
+
+.word {
+    margin: auto;
+    color: #A94915;
+    font: 700 normal 2.5em 'tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+}
+
+#fixpadding {
+    padding-top:-100px
+}
+
+.section-sub-title {
+    font-family: 'Font Awesome 6 Free';
+}

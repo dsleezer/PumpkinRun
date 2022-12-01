@@ -1,0 +1,273 @@
+
+@model PumpkinRun.DATA.EF.Models.RaceDayInformation
+
+﻿@{
+    ViewData["Title"] = "FAQ";
+}
+
+<header id="faq" class="backstretched single-page-hero">
+    <div class="dark-overlay single-page-hero">
+        <div class="container single-page-hero">
+            <div class="vertical-center-js text-center">
+                <h1>Frequently Asked Questions</h1>
+                @*   <p class="section-sub-title">Hurry, they fill up quickly.</p>*@
+            </div>
+        </div>
+    </div>
+</header>
+<section id="event-information">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <h1 class="mb-3">Event Information</h1>
+                <button class="accordion">When is the Pumpkin Run?</button>
+                <div class="panel">
+                    <p class="p-2">The Pumpkin Run will be @Html.DisplayFor(d => d.ScheduledDate)  5K Run/Walk will start at 8:00 AM following a Tot Trot at approximately 9:15 and will conclude with an awards ceremony in the gym at approximately 9:30 AM.</p>
+                </div>
+
+                <button class="accordion">Where is the Pumpkin Run held?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        The Pumpkin Run starts and ends at Black bob Elementary School in Olathe, Kansas.
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Click to view directions to the school or the course map.
+                        </a>
+                    </p>
+                </div>
+
+                <button class="accordion">What additional activities are at the event?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        In addition to the 5K Run/Walk, there will be a Tot Trot / Run for the Pumpkins for children ages 1 to 5, a costume collection for kids, a Bone Marrow Drive and Awards.
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Read more on our Race Day Schedule page.
+                        </a>
+                    </p>
+                </div>
+                <button class="accordion">Do you need volunteers for the race?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        YES! Volunteers are needed before, during and after the race. To register as a volunteer and to see all available opportunities, please check our
+                        <a href="@Url.Action("HowToHelp", "Home")">
+                            Volunteer
+                        </a>
+                        page.
+                    </p>
+                </div>
+                <button class="accordion">Do participants get a race shirt?  Do participants get a medal or trophy?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        All registered participants will receive an official Pumpkin Run t-shirt. The top three overall finishers and top three per age/gender finshers will receive a trophy.
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Read about our Awards Ceremony here to learn more.
+                        </a>
+                    </p>
+                </div>
+                <button class="accordion">Are strollers allowed?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        Strollers are not only allowed they are welcome! We encourage full-family participation, even your little ones! We do ask that strollers line up with the walkers behind the runners in the 2nd wave to avoid accidents.
+                    </p>
+
+                    <p class="p-2">Children in strollers are not required to be registered for the race, but are welcome to participate in our Tot Trot.</p>
+
+                </div>
+                <button class="accordion">Are dogs allowed on the course?</button>
+                <div class="panel">
+                    <p class="p-2">Pets are not allowed in the Pumpkin Run. Service animals are permitted to assist participants.</p>
+                </div>
+                <button class="accordion">Do you have a bag/gear drop?</button>
+                <div class="panel">
+                    <p class="p-2">No, due to the short length of the race, we do not provide a gear drop.</p>
+                </div>
+
+
+                <h1 class="mt-5 mb-3">Event Registration</h1>
+                <button class="accordion">How do I register for the Pumpkin Run?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        You can register online, by printing our registration form and mailing it to us or in person during Packet Pickup. Get full details and links on our
+                        <a href="@Url.Action("Index", "Register")">
+                            Ways to Register
+                        </a>
+                        page.
+                    </p>
+                </div>
+                <button class="accordion">How do I register as part of a running club?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        Schools should have each participant fill-out and return to the school a School Registration Form so all students can be registered together. Read additional details on our
+                        <a href="@Url.Action("Index", "Register")">
+                            Register
+                        </a>
+                        page.
+                    </p>
+                </div>
+                <button class="accordion">How do I register an entire running club?</button>
+                <div class="panel">
+                    <p class="p-2">The easiest way to ensure all members of your club are registered is to have each participant fill-out and return to YOU the School Registration Form. These registration forms should be returned to you no later than September 19 so you can then turn in all money and forms together to the Pumpkin Run no later than September 24.</p>
+                </div>
+                <button class="accordion">
+                    What does registration cost?
+                </button>
+                <div class="panel">
+                    <p class="p-2">
+                        Registration costs various by type and when you register. View the full registration costs on our
+                        <a href="@Url.Action("Index", "Register")">
+                            Ways to Register
+                        </a>
+                        page.
+                    </p>
+                </div>
+                <button class="accordion">
+                    Do you allow transfers of registrations?  Do you refund registrations?
+                </button>
+                <div class="panel">
+                    <p class="p-2">
+                        Transfer of registrations is not allowed. Please be sure each registered person wears their assigned bib number.
+                    </p>
+
+                    <p class="p-2">We do not refund registrations as all money raised is donated to our Beneficiaries. If you are unable to run, please consider your entry fee a donation to the cause.</p>
+
+                </div>
+
+
+                <h1 class="mt-5 mb-3">Fundraising</h1>
+                <button class="accordion">Who does the race benefit?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        The race has several beneficiaries; specifically organizations involved in leukemia & lymphoma research and education.
+                    </p>
+
+                    <p class="p-2">Beneficiaries include: Children’s Mercy Cancer Center, The Dream Factory, The Leukemia & Lymphoma Society, Heart of America Bone Marrow Donor Registry, Ronald McDonald House Charities, Solace House, and the Jared Coones Memorial Foundation.</p>
+
+                    <p class="p-2">
+                        You can read more about these organizations on our
+                        <a href="@Url.Action("Beneficiaries", "Sponsors")">
+                            Beneficiaries
+                        </a>
+                        page.
+                    </p>
+                </div>
+                <button class="accordion">Do you need Sponsors for the event?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        YES! Sponsorship opportunities are still available. Please visit our
+                        <a href="@Url.Action("Index", "SponsorTypes")">
+                            Become a Sponsor
+                        </a>
+                        page for full details.
+                    </p>
+                </div>
+                <button class="accordion">Can I donate money without participating in the race?</button>
+                <div class="panel">
+                    <p class="p-2">Yes! Please use the DONATE button on the top-right side of any page on this site, or make a donation on the <a href="https://register.chronotrack.com/r/8798" target="_blank">donation link.</a></p>
+                </div>
+
+
+                <h1 class="mt-5 mb-3">Packet Pickup</h1>
+                <button class="accordion">When and where is Packet Pickup?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        Packet pickup will be at Black Bob Elementary School at the following times:<br />
+                        @Model.PacketPickupOption1<br/>
+                        @Model.PacketPickupOption2<br/>
+                        @Model.PacketPickupOption3<br/>
+                        <br /> Full details can be found <a href="@Url.Action("TheRace", "Home")">here</a>.
+                    </p>
+
+                    <p class="p-2">Please note that if you are part of a School Running Club, packets will be delivered to the school you are registered with.</p>
+                </div>
+                <button class="accordion">Can someone else pick up my packet?  Can I pick up other packets? </button>
+                <div class="panel">
+                    <p class="p-2">Yes, you can pick up someone else’s packet or they can pick up yours if need be. Please know something specific about the people for whom you are picking up, such as their age/birthdate, in case there are multiple people with the same name.</p>
+                </div>
+                <button class="accordion">
+                    Where do I pickup a packet for a Running Club individual?
+                </button>
+                <div class="panel">
+                    <p class="p-2">
+                        All packets for running club members will be delivered to the running club’s sponsor school. Packets shold be distributed by / picked up from your club contact.
+                    </p>
+                </div>
+
+
+                <h1 class="mt-5 mb-3">Parking & Transportation</h1>
+                <button class="accordion"> Where should I/can I park for this event?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        Two area organizations have offered their parking lots for participant usage: Frontier Trail Junior High School and MidAmerica Nazarene University. Read our
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Directions and Parking
+                        </a>
+                        page for complete details.
+                    </p>
+                </div>
+                <button class="accordion">Do you provide transportation to/from parking?</button>
+                <div class="panel">
+                    <p class="p-2">
+                        YES! We will be running shuttle buses from the MidAmerica Nazarene and Frontier Trail parking lots beginning at 6:15 AM. The last shuttle bus will leave from the lots at 7:30 AM.
+                    </p>
+
+                    <p class="p-2">There will be one pickup location for shuttles back to the lots located at the northwest corner of the school. Shuttle returns will be begin at 9:30 AM.</p>
+
+                    <p class="p-2">
+                        Full parking and shuttle information on our on
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Directions & Parking
+                        </a>
+                        page.
+                    </p>
+                </div>
+
+
+                <h1 class="mt-5 mb-3">Route Details</h1>
+                <button class="accordion">What is the course route?  How long is the route?  What is the course elevation?</button>
+                <div class="panel">
+                    <p class="p-2">The Pumpkin Run travels through residential neighborhoods near Black Bob Elementary School, where Jared Coones attended as a student. The course will take you past the home where the Coones family once lived. The route is 5 kilometers or 3.1 miles. Entire elevation is only 51 feet. You can view the full course layout, elevation and additional details on our 
+                        <a href="@Url.Action("TheRace", "Home")">
+                            Race Info
+                        </a>
+                        page.</p>
+                </div>
+                <button class="accordion">
+                    Are there water/aid stations along the route?
+                </button>
+                <div class="panel">
+                    <p class="p-2">
+                        Yes, there are two water stations along the route. Also, water will be available at the end of the route. Food and drinks will be in the tent east of the gym.
+                    </p>
+
+                    <p class="p-2">Volunteers will be placed along the route who can help with medical issues. First aid will be available in the school.</p>
+                </div>
+                <button class="accordion">Is there a time limit for course completion?</button>
+                <div class="panel">
+                    <p class="p-2">All participants must be off the route by 9:30 am.</p>
+                </div>
+                <button class="accordion">Can everyone be timed?  Do you time the student runners?  Do I have to be timed?</button>
+                <div class="panel">
+                    <p class="p-2"> We will time anyone who has registered for the race and who wears their race bib, including all students from running clubs. Timing is automatic as the “chip” is part of your race bib.</p>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="column">
+                        <h2>Remembering Jared & Jayne</h2>
+                        <p> Honoring the lives of Jared and Jayne Coones. Creating an event that celebrates family and community. Raising funds for research and organizations that support cancer patients and their families.</p>
+                        
+                        <a class="btn btn-lg btn-primary" href="@Url.Action("Info", "About")">Jared & Jayne Coones</a>
+                    </div>
+                    <div class="column">
+                        <h2>Committe</h2>
+                        <p> This dedicated group of volunteers, honoring Jared & Jayne, helps to ensure proceeds raised for the beneficiaries are maximized.</p>
+                         <p>
+                        <a class="btn btn-primary btn-lg" href="@Url.Action("ChairsAndCommittee", "About")" role="button">Chairs & Committee</a>
+                     
+                         </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

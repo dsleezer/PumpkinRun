@@ -1,0 +1,63 @@
+﻿@model PumpkinRun.DATA.EF.Models.Sponsor
+
+@{
+    ViewData["Title"] = "Add a Sponsor";
+}
+
+<!-- header banner -->
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>Add a Sponsor</h4>
+                </div>
+
+                <!-- create form -->
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+
+                        <form asp-action="Create" id="createform" class="create-form" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <input asp-for="SponsorName" class="form-control col-md-4 mb20" placeholder="Name" />
+                                <span asp-validation-for="SponsorName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="SponsorUrl" class="form-control col-md-4 mb20" placeholder="Website Url" />
+                                <span asp-validation-for="SponsorUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" asp-for="Image" class="form-control"/>
+                                <span asp-validation-for="SponsorLogo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <select asp-for="SponsorTypeId" class="form-control col-md-4 mb20" asp-items="ViewBag.SponsorTypeId"></select>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="SponsorVideoUrl" class="form-control col-md-4 mb20" placeholder="Video Url" />
+                                <span asp-validation-for="SponsorVideoUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Add" class="btn btn-primary pull-right mt30" />
+                                <a asp-action="Manage" class="btn btn-secondary">Back to Sponsor List</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

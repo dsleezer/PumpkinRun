@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.SponsorTypeBenefit>
+
+@{
+    ViewData["Title"] = "Sponsor Type Benefits";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Benefit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Benefit.BenefitDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorType.SponsorTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Stbid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Stbid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Stbid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

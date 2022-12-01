@@ -1,0 +1,121 @@
+﻿@model PumpkinRun.DATA.EF.Models.Sponsor
+
+@{
+    ViewData["Title"] = "Delete " + @Model.SponsorName + "?";
+}
+
+<!-- header banner -->
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4 class="text-danger">Are you sure you want to delete this sponsor?</h4>
+                </div>
+
+                <!-- edit form section -->
+                <div class="col-sm-6 match-height mb40" style="display: block; height: 229px;">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="hover-effect smoothie">
+
+                                @if (Model.SponsorLogo == null)
+                                {
+                                    <a href="@Model.SponsorUrl" class="smoothie">
+                                        <div class="text-center" style="padding-top: 45px;">@Model.SponsorName</div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="@Model.SponsorUrl" class="smoothie">
+                                        <img src="~/assets/images/Sponsors/@Model.SponsorLogo" alt="Logo for @Model.SponsorName" class="img-responsive smoothie">
+                                    </a>
+                                }
+
+                                <div class="hover-caption dark-overlay smoothie text-center">
+                                    <div class="vertical-center-js" style="padding-top: 66px;">
+                                        <a href="@Model.SponsorUrl" class="btn btn-primary btn-green">Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3 class="mt0">@Model.SponsorName</h3>
+                            <p class="mb20">
+                                @Model.SponsorType.SponsorTypeName<br />
+                                <a href="@Model.SponsorUrl">
+                                    @Model.SponsorUrl<br />
+                                </a>
+                                @if (Model.SponsorVideoUrl != null)
+                                {
+                                    <a href="@Model.SponsorVideoUrl">
+                                        @Model.SponsorVideoUrl
+                                    </a>
+                                }
+                            </p>
+
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="SponsorId" />
+                                <input type="submit" value="Delete" class="btn btn-danger" /> 
+                                <a asp-action="Manage" class="btn btn-green">Back to List</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end edit form section -->
+
+                <!-- create form -->
+                @*<div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+
+                        <div>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.SponsorName)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.SponsorName)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.SponsorUrl)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.SponsorUrl)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.SponsorLogo)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.SponsorLogo)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.SponsorVideoUrl)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.SponsorVideoUrl)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.SponsorType)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.SponsorType.SponsorTypeName)
+                                </dd>
+                            </dl>
+
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="SponsorId" />
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                <a asp-action="Index">Back to List</a>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+</section>

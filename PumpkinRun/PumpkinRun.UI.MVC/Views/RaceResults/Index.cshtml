@@ -1,0 +1,236 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.RaceResult>
+
+@{
+    ViewData["Title"] = "Race Results";
+}
+
+<header id="race-results" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1>
+                    RACE<br>
+                    RESULTS
+                </h1>
+                <p>                    
+                    <a class="btn btn-lg btn-primary page-scroll" href="@Url.Action("Index", "RaceVideos")" role="button">RACE VIDEOS</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="our-courses">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <h1 class="mb-3">Course Records</h1>
+                <button class="accordion">Best Times</button>
+                <div class="panel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="text-center">Best Female Race Time</h3>
+                            <ol class="text-center">
+                                <li>
+                                    @{
+                                        PumpkinRun.DATA.EF.Models.RaceResult bestfemaleRecord = (PumpkinRun.DATA.EF.Models.RaceResult)ViewData["FemaleRecordName"];
+                                    }
+                                    @bestfemaleRecord.FemaleWinner1Name: @String.Format($"{ViewData["FemaleRecordTime"]:mm\\:ss}") (@bestfemaleRecord.RaceYear.Year)
+
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-center">Best Male Race Time</h3>
+                            <ol class="text-center">
+                                <li>
+                                    @{
+                                        PumpkinRun.DATA.EF.Models.RaceResult bestMaleRecord = (PumpkinRun.DATA.EF.Models.RaceResult)ViewData["MaleRecordName"];
+                                    }
+                                    @bestMaleRecord.MaleWinner1Name: @String.Format($"{ViewData["MaleRecordTime"]:mm\\:ss}") (@bestMaleRecord.RaceYear.Year)
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="mb-3">Race Results
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <a class="btn btn-lg btn-primary page-scroll" asp-action="Create" role="button">Add</a>                        
+                    }
+                </h1>
+                @foreach (var item in Model)
+                {
+                    <button class="accordion">@item.RaceYear.Year</button>
+                    <div class="panel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="text-center">Overall Female Winners</h3>
+                                <ol class="text-center">
+                                    <li>@item.FemaleWinner1Name: @Html.DisplayFor(modelItem => item.FemaleWinner1Time)</li>
+                                    <li>@item.FemalWinner2Name: @Html.DisplayFor(modelItem => item.FemaleWinner2Time)</li>
+                                    <li>@item.FemaleWinner3Name: @Html.DisplayFor(modelItem => item.FemaleWinner3Time)</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="text-center">Overall Male Winners</h3>
+                                <ol class="text-center">
+                                    <li>@item.MaleWinner1Name: @Html.DisplayFor(modelItem => item.MaleWinner1Time)</li>
+                                    <li>@item.MaleWinner2Name: @Html.DisplayFor(modelItem => item.MaleWinner2Time)</li>
+                                    <li>@item.MaleWinner3Name: @Html.DisplayFor(modelItem => item.MaleWinner3Time)</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <a class="btn btn-primary text-center mt60 mb-3" href="@item.RacePhotosUrl" target="_blank" rel="noreferrer">Race Photos</a>
+                                @*<ul class="text-center" style="list-style-type: none;">
+                                    <li>Click <a href="@item.RacePhotosUrl" target="_blank" rel="noreferrer">here</a> to view the race photos.</li>
+                                    </ul>*@
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <a href="@item.ExternalResultsUrl" target="_blank" rel="noreferrer" class="btn btn-primary text-center mt60 mb-3">Results</a>
+                                @*<ul class="text-center" style="list-style-type: none;">
+                                    <li>Click <a href="@item.ExternalResultsUrl" target="_blank" rel="noreferrer">here</a> to view the results.</li>
+                                    </ul>*@
+                            </div>  
+                            @if (User.IsInRole("Admin"))
+                            {
+                            <div class="col-md-6 text-center">
+                                <a class="btn btn-primary text-center mt60 mb-3" asp-action="Edit" asp-route-id="@item.RaceResultId">Edit</a>
+                                @*<ul class="text-center" style="list-style-type: none;">
+                                    <li>Click <a href="@item.ExternalResultsUrl" target="_blank" rel="noreferrer">here</a> to view the results.</li>
+                                    </ul>*@
+                            </div>                                
+                            }
+                        </div>
+
+                    </div>
+
+
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*<h2>Index</h2>
+
+    <p>
+    <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => model.RaceYear)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner1Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner1Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner2Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner2Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner3Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.MaleWinner3Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemaleWinner1Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemaleWinner1Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemalWinner2Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemaleWinner2Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemaleWinner3Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.FemaleWinner3Time)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.ExternalResultsUrl)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.RacePhotosUrl)
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.RaceYear)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner1Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner1Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner2Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner2Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner3Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.MaleWinner3Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemaleWinner1Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemaleWinner1Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemalWinner2Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemaleWinner2Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemaleWinner3Name)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.FemaleWinner3Time)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.ExternalResultsUrl)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.RacePhotosUrl)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.RaceResultId">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.RaceResultId">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.RaceResultId">Delete</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>
+*@

@@ -1,0 +1,56 @@
+﻿@model PumpkinRun.DATA.EF.Models.SilentAuction
+
+@{
+    ViewData["Title"] = "Edit Silent Auction";
+}
+
+<section class="silver-wrapper">
+    <div class="section-inner-60">
+        <div class="container">
+            <div class="row cta">
+
+                <div class="col-sm-9">
+                    <h4>@ViewData["Title"]</h4>
+                </div>
+                <div id="comments-form" class="row wow fadeIn mx-5" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+
+                    <div class="col-md-6">
+                        <form asp-action="EditSilentAuction">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Said" />
+                            <div class="form-group">
+                                <label asp-for="AuctionMessage" class="control-label"></label>
+                                <input asp-for="AuctionMessage" class="form-control" />
+                                <span asp-validation-for="AuctionMessage" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input asp-for="IsDisplayed" /> Show on home page?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AuctionUrl" class="control-label"></label>
+                                <input asp-for="AuctionUrl" class="form-control" />
+                                <span asp-validation-for="AuctionUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary pull-right mt30" />
+                                <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

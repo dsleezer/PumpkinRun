@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PumpkinRun.DATA.EF.Models.Sponsor>
+
+@{
+    ViewData["Title"] = "Manage Sponsors";
+}
+
+<!-- Hero Banner -->
+<header id="home" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">
+            <div class="jumbotron">
+                <h1>
+                    <small>Manage</small><br>
+                    Sponsors
+                </h1>
+                <p>
+                    <a class="btn btn-lg btn-primary btn-green page-scroll" asp-action="Create" role="button">Add A SPONSOR</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container" style="margin-top: 60px;">
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 match-height mb40" style="display: block; height: 229px;">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="hover-effect smoothie">
+
+                            @if (item.SponsorLogo == null)
+                            {
+                                <a href="@item.SponsorUrl" class="smoothie">
+                                    <div class="text-center" style="padding-top: 45px;">@item.SponsorName</div>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@item.SponsorUrl" class="smoothie">
+                                    <img src="~/assets/images/Sponsors/@item.SponsorLogo" alt="Logo for @item.SponsorName" class="img-responsive smoothie">
+                                </a>
+                            }
+
+                            <div class="hover-caption dark-overlay smoothie text-center">
+                                <div class="vertical-center-js" style="padding-top: 66px;">
+                                    <a href="@item.SponsorUrl" class="btn btn-primary btn-green">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3 class="mt0">@item.SponsorName</h3>
+                        <p class="mb20">
+                            @item.SponsorType.SponsorTypeName<br />
+                            <a href="@item.SponsorUrl">
+                                @item.SponsorUrl<br />
+                            </a>
+                            @if (item.SponsorVideoUrl != null)
+                            {
+                                <a href="@item.SponsorVideoUrl">
+                                    @item.SponsorVideoUrl
+                                </a>
+                            }
+                        </p>
+                        <a asp-action="Edit" asp-route-id="@item.SponsorId" class="btn btn-primary btn-green">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.SponsorId" class="btn btn-primary btn-green">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

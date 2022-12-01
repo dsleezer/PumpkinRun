@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Email Confirmation";
+}
+
+
+@model PumpkinRun.UI.MVC.Models.ContactViewModel
+
+  
+        <header id="home" class="backstretched fullheight">
+            <div class="dark-overlay fullheight">
+                <div class="container fullheight">                   
+                    <div class="jumbotron">
+                        <h1>Thank You <br><small>We will reach out to @Model.Email shortly</small>
+                        </h1>
+                        <p>
+                            <a class="btn btn-white btn-lg" href="@Url.Action("Index", "Home")" role="button">Home</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+     
+
+
+      
